@@ -27,15 +27,22 @@
           <span class="sr-only">Jordan 50th</span>
         </a>
 
-        <nav class="menu" aria-label="Section navigation">
+        <nav class="menu" id="mainMenu" aria-label="Section navigation">
           <a href="#overview">Overview</a>
           <a href="#cool-facts">Cool Facts</a>
           <a href="#agenda">Agenda</a>
           <a href="#location">Location</a>
           <a href="#lodging">Lodging</a>
+          <a class="mobile-rsvp" href="mailto:rsvp@sproutstudios.com?subject=Jordan%2050th%20RSVP">RSVP</a>
         </nav>
 
-        <a class="header-rsvp surf-board-icon" href="mailto:rsvp@sproutstudios.com?subject=Jordan%2050th%20RSVP">RSVP</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <a class="header-rsvp desktop-rsvp" href="mailto:rsvp@sproutstudios.com?subject=Jordan%2050th%20RSVP">RSVP</a>
       </header>
 
       <section class="hero panel reveal" id="overview" aria-label="Overview">
@@ -366,6 +373,28 @@
         factIndex = (factIndex + 1) % breakFacts.length;
         renderBreakFact();
       }, prefersReducedMotion ? 12000 : 4600);
+
+      // Hamburger Menu Toggle
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mainMenu = document.getElementById('mainMenu');
+      
+      if (hamburgerBtn && mainMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+          hamburgerBtn.classList.toggle('active');
+          mainMenu.classList.toggle('active');
+          const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+          hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close menu when clicking a link
+        mainMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburgerBtn.classList.remove('active');
+            mainMenu.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
     </script>
   </body>
 </html>
