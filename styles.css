@@ -11,6 +11,7 @@
   --ink: #082136;
   --line: rgba(8, 33, 54, 0.3);
   --line-strong: rgba(8, 33, 54, 0.5);
+  --surf-accent: #ff6b6b;
 }
 
 * {
@@ -26,16 +27,25 @@ body {
   min-height: 100vh;
   color: var(--ink);
   font-family: "Manrope", "Segoe UI", Helvetica, Arial, sans-serif;
-  background: #ffffff;
+  background: transparent;
   position: relative;
   overflow-x: hidden;
+}
+
+/* Custom Surf Separator */
+.surf-separator {
+  height: 4px;
+  background: linear-gradient(90deg, var(--ocean-500), var(--reef), var(--sun));
+  margin: 40px 0;
+  border-radius: 2px;
 }
 
 .ocean-layers {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
+  background: white;
 }
 
 .sun-glow {
@@ -45,9 +55,11 @@ body {
   width: 420px;
   height: 420px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 174, 102, 0.42), rgba(255, 174, 102, 0));
-  filter: blur(8px);
+  background: radial-gradient(circle, rgba(255, 174, 102, 0.22), rgba(255, 174, 102, 0));
+  filter: blur(60px);
   animation: sunPulse 12s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .wave {
@@ -755,6 +767,43 @@ h3 {
   .hero-visual {
     transform: none;
   }
+}
+
+@keyframes surfWave {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(-10px) translateY(-5px); }
+  50% { transform: translateX(0) translateY(-10px); }
+  75% { transform: translateX(10px) translateY(-5px); }
+}
+
+.surf-accent {
+  color: var(--sun);
+  font-weight: 800;
+}
+
+.wave-divider {
+  height: 6px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--ocean-500) 20%, 
+    var(--reef) 50%, 
+    var(--sun) 80%, 
+    transparent 100%);
+  margin: 60px 0;
+  border-radius: 3px;
+  opacity: 0.6;
+}
+
+.surf-board-icon::before {
+  content: "🏄";
+  margin-right: 8px;
+  filter: grayscale(100%) brightness(0.8) sepia(100%) hue-rotate(-50deg) saturate(2);
+}
+
+.ocean-texture {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(74, 209, 207, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 145, 82, 0.1) 0%, transparent 50%);
 }
 
 @keyframes driftBack {
