@@ -944,7 +944,6 @@ h3 {
     height: 44px;
     border: 2px solid var(--ocean-950);
     background: var(--sun);
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
