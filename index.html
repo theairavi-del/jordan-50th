@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Jordan 50th Surf Session</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap"
     />
   </head>
   <body>
+    <div class="ocean-layers" aria-hidden="true">
+      <div class="sun-glow"></div>
+      <div class="wave wave-back"></div>
+      <div class="wave wave-mid"></div>
+      <div class="wave wave-front"></div>
+    </div>
+
     <main class="site">
       <header class="site-header">
         <a class="brand" href="#top" aria-label="Jordan 50th home">
@@ -35,7 +40,7 @@
           <span></span>
         </button>
 
-        <a class="header-rsvp desktop-rsvp" href="mailto:rsvp@sproutstudios.com?subject=Jordan%2050th%20RSVP">RSVP</a>
+        <a class="header-rsvp" href="mailto:rsvp@sproutstudios.com?subject=Jordan%2050th%20RSVP">RSVP</a>
       </header>
 
       <section class="hero panel reveal" id="overview" aria-label="Overview">
@@ -58,8 +63,8 @@
               <p class="stat-value">4.5 Hours</p>
             </article>
             <article class="stat-card">
-              <p class="stat-label">Swell Height</p>
-              <p class="stat-value">3.2 ft</p>
+              <p class="stat-label">Dress Code</p>
+              <p class="stat-value">Makeup Themed</p>
             </article>
           </div>
 
@@ -142,18 +147,13 @@
       </section>
 
       <section class="section reveal" id="location" aria-labelledby="location-title">
-        <h2 id="location-title">Break Location</h2>
-        <p class="section-note">Sprout Studios sits right in the heart of the action—easy to find, impossible to forget.</p>
-        
-        <div class="wave-divider"></div>
-        
+        <h2 id="location-title">Location</h2>
         <div class="section-panel map-panel">
           <iframe
             title="Map to Sprout Studios"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.8188032630707!2d-71.0565536845835!3d42.35208897918743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3707f8f8f8f8f%3A0x8f8f8f8f8f8f8f8f!2sSprout%20Studios!5e0!3m2!1sen!2sus!4v1708300800000!5m2!1sen!2sus"
+            src="https://www.google.com/maps?q=Sprout+Studios&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            style="filter: sepia(20%) saturate(1.5) hue-rotate(-10deg);"
           ></iframe>
         </div>
         <div class="shore-grid">
@@ -272,14 +272,7 @@
         const now = new Date();
         const eventDate = new Date('2026-06-15T18:00:00-04:00');
         const diff = eventDate - now;
-        
-        if (diff <= 0) {
-          countdownEl.textContent = "0";
-          countdownEl.parentElement.querySelector('.stat-label').textContent = "Event Started!";
-          return;
-        }
-        
-        const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+        const days = Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
         countdownEl.textContent = String(days);
       };
 
@@ -290,10 +283,6 @@
         window.setTimeout(() => {
           imageEl.src = hotel.image;
           imageEl.alt = `${hotel.name} preview`;
-          imageEl.onerror = () => {
-            imageEl.src = 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80';
-            imageEl.alt = 'Hotel preview';
-          };
           setTextNoWidow(nameEl, hotel.name);
           setTextNoWidow(metaEl, hotel.meta);
           setTextNoWidow(descriptionEl, hotel.description);
@@ -367,7 +356,7 @@
         renderBreakFact();
       }, prefersReducedMotion ? 12000 : 4600);
 
-      // Hamburger Menu Toggle
+      // Hamburger menu toggle
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       const mainMenu = document.getElementById('mainMenu');
       
