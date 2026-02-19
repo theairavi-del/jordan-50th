@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jordan 50th Surf Session</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap"
+    />
+  </head>
+  <body>
+    <div class="ocean-layers" aria-hidden="true">
+      <div class="sun-glow"></div>
+      <div class="wave wave-back"></div>
+      <div class="wave wave-mid"></div>
+      <div class="wave wave-front"></div>
+    </div>
+
+    <main class="site">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Jordan 50th home">
+          <img class="brand-logo" src="assets/Jordan_Logo.png" alt="Jordan 50th logo" />
+          <span class="sr-only">Jordan 50th</span>
+        </a>
+
+        <nav class="menu" aria-label="Section navigation">
+          <a href="#overview">Overview</a>
+          <a href="#cool-facts">Cool Facts</a>
+          <a href="#agenda">Agenda</a>
+          <a href="#location">Location</a>
+          <a href="#lodging">Lodging</a>
+        </nav>
+
+        <a class="header-rsvp" href="mailto:rsvp@sproutstudios.com?subject=Jordan%2050th%20RSVP">RSVP</a>
+      </header>
+
+      <section class="hero panel reveal" id="overview" aria-label="Overview">
+        <div class="hero-copy">
+          <p class="kicker">Sprout Studios Presents</p>
+          <h1 id="top">Jordans 50th</h1>
+          <p class="lead">
+            Jordan turns 50 this June, and we are gathering friends, family, and longtime collaborators for a warm,
+            high-energy night at Sprout Studios. Think sunset hangs, good food, thoughtful toasts, and a dance floor that
+            carries the wave through the evening.
+          </p>
+
+          <div class="hero-stats" aria-label="Event pulse">
+            <article class="stat-card">
+              <p class="stat-label">Days Until Party</p>
+              <p class="stat-value" id="countdown-days">--</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">Session Length</p>
+              <p class="stat-value">4.5 Hours</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">Dress Code</p>
+              <p class="stat-value">Makeup Themed</p>
+            </article>
+          </div>
+
+          <div class="fact-grid" aria-label="Key details">
+            <article class="fact-item">
+              <p class="fact-label">Date</p>
+              <p class="fact-value">June 15, 2026</p>
+            </article>
+            <article class="fact-item">
+              <p class="fact-label">Time</p>
+              <p class="fact-value">6:00 PM to 10:30 PM</p>
+            </article>
+            <article class="fact-item">
+              <p class="fact-label">Venue</p>
+              <p class="fact-value">Sprout Studios</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80"
+            alt="Ocean wave at sunset"
+          />
+          <p class="hero-date">Save the Date // June 15, 2026</p>
+          <p class="board-tag">Paddle Out at Sunset</p>
+        </div>
+      </section>
+
+      <section class="section reveal" id="cool-facts" aria-labelledby="facts-title">
+        <h2 id="facts-title">Cool Facts</h2>
+        <div class="section-panel cool-grid">
+          <article class="cool-card">
+            <p class="cool-label">Commute Style</p>
+            <h3>Rides a Super Cool Red Moped</h3>
+            <p>Jordan rolls in on a red moped ready to conquer the day.</p>
+          </article>
+          <article class="cool-card">
+            <p class="cool-label">Inventor</p>
+            <h3>Has over 30 patents to his name</h3>
+            <p>Ideas that actually made it into the world.</p>
+          </article>
+          <article class="cool-card">
+            <p class="cool-label">Flow State</p>
+            <h3>Loves long bike rides to think</h3>
+            <p>Solves big problems in a flow state.</p>
+          </article>
+          <article class="cool-card">
+            <p class="cool-label">System Thinker</p>
+            <h3>Designs systems, not just products</h3>
+            <p>Applies design thinking to business itself.</p>
+          </article>
+        </div>
+
+        <div class="section-panel report-panel" aria-live="polite">
+          <p class="report-label">Break Report</p>
+          <p class="report-text" id="rotating-fact"></p>
+        </div>
+      </section>
+
+      <section class="section reveal" id="agenda" aria-labelledby="agenda-title">
+        <h2 id="agenda-title">Agenda</h2>
+        <div class="section-panel agenda-panel">
+          <article class="agenda-item">
+            <p class="agenda-time">6:00 PM</p>
+            <p class="agenda-copy">Guest arrival, welcome drinks, and open conversation.</p>
+          </article>
+          <article class="agenda-item">
+            <p class="agenda-time">7:00 PM</p>
+            <p class="agenda-copy">Dinner service and short birthday toasts.</p>
+          </article>
+          <article class="agenda-item">
+            <p class="agenda-time">8:30 PM</p>
+            <p class="agenda-copy">Cake, music, and a dance floor to close the night.</p>
+          </article>
+          <p class="agenda-note">
+            The flow is structured but relaxed, so guests can settle in early and stay through the late-night set.
+          </p>
+        </div>
+      </section>
+
+      <section class="section reveal" id="location" aria-labelledby="location-title">
+        <h2 id="location-title">Location</h2>
+        <div class="section-panel map-panel">
+          <iframe
+            title="Map to Sprout Studios"
+            src="https://www.google.com/maps?q=Sprout+Studios&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="shore-grid">
+          <article class="shore-card">
+            <p class="shore-label">Transit</p>
+            <p>Easy rideshare access with a clear drop-off point right at venue entry.</p>
+          </article>
+          <article class="shore-card">
+            <p class="shore-label">Parking</p>
+            <p>Multiple garages nearby for guests driving in for the event.</p>
+          </article>
+          <article class="shore-card">
+            <p class="shore-label">Arrival Tip</p>
+            <p>Aim for 6:00 PM so you catch welcome drinks and early stories.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="lodging" aria-labelledby="lodging-title">
+        <h2 id="lodging-title">Lodging</h2>
+        <div class="section-panel lodging-panel">
+          <button class="arrow-btn" type="button" data-dir="prev" aria-label="Previous hotel">
+            <svg class="arrow-icon" viewBox="0 0 18 28" aria-hidden="true" focusable="false">
+              <path d="M16 2 L2 14 L16 26 Z" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+
+          <article class="lodging-card">
+            <img id="lodging-image" src="" alt="" />
+            <div class="lodging-body">
+              <p class="lodging-name" id="lodging-name"></p>
+              <p class="lodging-meta" id="lodging-meta"></p>
+              <p class="lodging-description" id="lodging-description"></p>
+            </div>
+          </article>
+
+          <button class="arrow-btn" type="button" data-dir="next" aria-label="Next hotel">
+            <svg class="arrow-icon" viewBox="0 0 18 28" aria-hidden="true" focusable="false">
+              <path d="M2 2 L16 14 L2 26 Z" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <script>
+      const hotels = [
+        {
+          name: "The Revolution Hotel",
+          meta: "40 Berkeley St // about 10 minutes to Sprout Studios",
+          description:
+            "A modern boutique option with social spaces and strong value for guests who want to stay central.",
+          image:
+            "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1400&q=80"
+        },
+        {
+          name: "The Verb Hotel",
+          meta: "1271 Boylston St // about 12 minutes to Sprout Studios",
+          description:
+            "A lively hotel with personality, easy rideshare access, and a great fit for guests who enjoy an energetic atmosphere.",
+          image:
+            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=80"
+        },
+        {
+          name: "citizenM North Station",
+          meta: "80-120 Causeway St // about 15 minutes to Sprout Studios",
+          description:
+            "A clean, minimalist stay with efficient rooms and quick access to downtown dining and transit.",
+          image:
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80"
+        }
+      ];
+
+      const breakFacts = [
+        "Jordan's red moped commute keeps his event stamina elite level by default.",
+        "Mid-June sunsets are around 8:20 PM, right in time for cake and music.",
+        "A good surf session and a good party have the same rule: show up early and stay for the last wave.",
+        "This venue setup is optimized for conversation first, celebration second, and dance floor third."
+      ];
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const countdownEl = document.getElementById('countdown-days');
+      const factEl = document.getElementById('rotating-fact');
+      const heroVisualEl = document.querySelector('.hero-visual');
+
+      const imageEl = document.getElementById('lodging-image');
+      const nameEl = document.getElementById('lodging-name');
+      const metaEl = document.getElementById('lodging-meta');
+      const descriptionEl = document.getElementById('lodging-description');
+
+      let hotelIndex = 0;
+      let factIndex = 0;
+
+      const preventWidow = (text) => {
+        const words = text.trim().split(/\s+/);
+        if (words.length < 3) return text;
+        const lastWord = words.pop();
+        words[words.length - 1] = `${words[words.length - 1]}\u00A0${lastWord}`;
+        return words.join(' ');
+      };
+
+      const setTextNoWidow = (el, text) => {
+        el.textContent = preventWidow(text);
+      };
+
+      const applyStaticWidowFix = () => {
+        const staticTargets = document.querySelectorAll(
+          '.lead, .cool-card p:last-child, .agenda-copy, .agenda-note, .shore-card p:last-child'
+        );
+        staticTargets.forEach((el) => setTextNoWidow(el, el.textContent));
+      };
+
+      const updateCountdown = () => {
+        const now = new Date();
+        const eventDate = new Date('2026-06-15T18:00:00-04:00');
+        const diff = eventDate - now;
+        
+        if (diff <= 0) {
+          countdownEl.textContent = "0";
+          countdownEl.parentElement.querySelector('.stat-label').textContent = "Event Started!";
+          return;
+        }
+        
+        const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+        countdownEl.textContent = String(days);
+      };
+
+      const renderHotel = () => {
+        const hotel = hotels[hotelIndex];
+        imageEl.classList.remove('is-visible');
+
+        window.setTimeout(() => {
+          imageEl.src = hotel.image;
+          imageEl.alt = `${hotel.name} preview`;
+          imageEl.onerror = () => {
+            imageEl.src = 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80';
+            imageEl.alt = 'Hotel preview';
+          };
+          setTextNoWidow(nameEl, hotel.name);
+          setTextNoWidow(metaEl, hotel.meta);
+          setTextNoWidow(descriptionEl, hotel.description);
+          imageEl.classList.add('is-visible');
+        }, prefersReducedMotion ? 0 : 120);
+      };
+
+      const renderBreakFact = () => {
+        factEl.classList.remove('is-visible');
+
+        window.setTimeout(() => {
+          setTextNoWidow(factEl, breakFacts[factIndex]);
+          factEl.classList.add('is-visible');
+        }, prefersReducedMotion ? 0 : 120);
+      };
+
+      document.querySelectorAll('.lodging-panel .arrow-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+          if (button.dataset.dir === 'next') {
+            hotelIndex = (hotelIndex + 1) % hotels.length;
+          } else {
+            hotelIndex = (hotelIndex - 1 + hotels.length) % hotels.length;
+          }
+          renderHotel();
+        });
+      });
+
+      if (heroVisualEl && !prefersReducedMotion) {
+        const resetTilt = () => {
+          heroVisualEl.style.setProperty('--tilt-x', '0deg');
+          heroVisualEl.style.setProperty('--tilt-y', '0deg');
+        };
+
+        heroVisualEl.addEventListener('mousemove', (event) => {
+          const bounds = heroVisualEl.getBoundingClientRect();
+          const x = (event.clientX - bounds.left) / bounds.width;
+          const y = (event.clientY - bounds.top) / bounds.height;
+          const tiltX = (x - 0.5) * 4;
+          const tiltY = (0.5 - y) * 4;
+          heroVisualEl.style.setProperty('--tilt-x', `${tiltX}deg`);
+          heroVisualEl.style.setProperty('--tilt-y', `${tiltY}deg`);
+        });
+
+        heroVisualEl.addEventListener('mouseleave', resetTilt);
+      }
+
+      if (!prefersReducedMotion) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      } else {
+        document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in-view'));
+      }
+
+      applyStaticWidowFix();
+      updateCountdown();
+      renderHotel();
+      renderBreakFact();
+
+      window.setInterval(() => {
+        factIndex = (factIndex + 1) % breakFacts.length;
+        renderBreakFact();
+      }, prefersReducedMotion ? 12000 : 4600);
+    </script>
+  </body>
+</html>
