@@ -890,22 +890,22 @@ h3 {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
-    max-width: 300px;
+    width: 100%;
+    max-width: none;
     height: 100vh;
     background: rgba(234, 249, 255, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     justify-content: flex-start;
-    padding: 100px 24px 24px;
+    padding: 100px 15px 24px;
     gap: 0;
     transition: right 0.3s ease;
     z-index: 999;
-    border-left: 2px solid var(--line-strong);
-    border-right: 2px solid var(--line-strong);
+    border-left: none;
+    border-right: none;
     display: flex;
-    box-shadow: -5px 0 30px rgba(0,0,0,0.3);
+    box-shadow: none;
     overflow-y: auto;
   }
 
@@ -913,19 +913,24 @@ h3 {
     right: 0;
   }
 
-  body.menu-open {
-    overflow: hidden;
-  }
-
   .menu a {
-    font-size: 16px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line);
+    font-size: 18px;
+    padding: 18px 0;
+    border-bottom: 2px solid var(--line);
     text-align: left;
+    margin: 0 10px;
   }
 
   .menu a:last-of-type {
     border-bottom: 0;
+  }
+
+  .mobile-rsvp {
+    margin: 20px 10px 0;
+  }
+
+  body.menu-open {
+    overflow: hidden;
   }
 
   /* Hide desktop RSVP on mobile */
@@ -938,7 +943,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin: 20px 10px 0;
     padding: 16px 20px;
     background: var(--sun);
     color: var(--ocean-950);
@@ -946,12 +951,10 @@ h3 {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     text-decoration: none;
-    border: 2px solid var(--ocean-950) !important;
-    border-bottom: 2px solid var(--ocean-950) !important;
-    font-size: 14px;
+    border: 2px solid var(--ocean-950);
+    font-size: 16px;
     text-align: center;
     line-height: 1;
-    box-sizing: border-box;
   }
 
   /* Adjust header layout for mobile */
