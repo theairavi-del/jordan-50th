@@ -145,7 +145,7 @@
         <div class="section-panel map-panel">
           <iframe
             title="Map to Sprout Studios"
-            src="https://www.google.com/maps?q=Sprout+Studios&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.3775!2d-71.0568!3d42.3521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3707f8f8f8f8f%3A0x8f8f8f8f8f8f8f8f!2sSprout%20Studios!5e0!3m2!1sen!2sus!4v1708300800000!5m2!1sen!2sus"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -175,7 +175,7 @@
             </svg>
           </button>
 
-          <article class="lodging-card">
+          <article class="lodging-card" id="lodgingCard">
             <img id="lodging-image" src="" alt="" />
             <div class="lodging-body">
               <p class="lodging-name" id="lodging-name"></p>
@@ -189,6 +189,17 @@
               <path d="M2 2 L16 14 L2 26 Z" fill="none" stroke="currentColor" stroke-width="2" />
             </svg>
           </button>
+        </div>
+        
+        <!-- Mobile swipe controls -->
+        <div class="swipe-controls mobile-only">
+          <button class="swipe-arrow" data-dir="prev" aria-label="Previous">&#8592;</button>
+          <div class="swipe-dots">
+            <span class="swipe-dot active" data-index="0"></span>
+            <span class="swipe-dot" data-index="1"></span>
+            <span class="swipe-dot" data-index="2"></span>
+          </div>
+          <button class="swipe-arrow" data-dir="next" aria-label="Next">&#8594;</button>
         </div>
       </section>
 
@@ -349,6 +360,72 @@
         factIndex = (factIndex + 1) % breakFacts.length;
         renderBreakFact();
       }, prefersReducedMotion ? 12000 : 4600);
+
+      // Mobile swipe functionality for lodging
+      const lodgingCard = document.getElementById('lodgingCard');
+      const swipeDots = document.querySelectorAll('.swipe-dot');
+      const swipeArrows = document.querySelectorAll('.swipe-arrow');
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      function updateDots() {
+        swipeDots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === hotelIndex);
+        });
+      }
+
+      function nextHotel() {
+        hotelIndex = (hotelIndex + 1) % hotels.length;
+        renderHotel();
+        updateDots();
+      }
+
+      function prevHotel() {
+        hotelIndex = (hotelIndex - 1 + hotels.length) % hotels.length;
+        renderHotel();
+        updateDots();
+      }
+
+      // Touch swipe
+      if (lodgingCard) {
+        lodgingCard.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lodgingCard.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) nextHotel();
+            else prevHotel();
+          }
+        }, { passive: true });
+      }
+
+      // Swipe arrow buttons
+      swipeArrows.forEach(arrow => {
+        arrow.addEventListener('click', () => {
+          if (arrow.dataset.dir === 'next') nextHotel();
+          else prevHotel();
+        });
+      });
+
+      // Dot navigation
+      swipeDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          hotelIndex = index;
+          renderHotel();
+          updateDots();
+        });
+      });
+
+      // Update dots when using desktop arrows
+      document.querySelectorAll('.arrow-btn').forEach(btn => {
+        btn.addEventListener('click', updateDots);
+      });
+
+      // Initial dot update
+      updateDots();
     </script>
   </body>
 </html>
