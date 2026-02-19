@@ -197,17 +197,6 @@
             </svg>
           </button>
         </div>
-        
-        <!-- Mobile swipe controls -->
-        <div class="swipe-controls mobile-only">
-          <button class="swipe-arrow" data-dir="prev" aria-label="Previous">&#8592;</button>
-          <div class="swipe-dots">
-            <span class="swipe-dot active" data-index="0"></span>
-            <span class="swipe-dot" data-index="1"></span>
-            <span class="swipe-dot" data-index="2"></span>
-          </div>
-          <button class="swipe-arrow" data-dir="next" aria-label="Next">&#8594;</button>
-        </div>
       </section>
 
     </main>
@@ -367,72 +356,6 @@
         factIndex = (factIndex + 1) % breakFacts.length;
         renderBreakFact();
       }, prefersReducedMotion ? 12000 : 4600);
-
-      // Mobile swipe functionality for lodging
-      const lodgingCard = document.getElementById('lodgingCard');
-      const swipeDots = document.querySelectorAll('.swipe-dot');
-      const swipeArrows = document.querySelectorAll('.swipe-arrow');
-      let touchStartX = 0;
-      let touchEndX = 0;
-
-      function updateDots() {
-        swipeDots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === hotelIndex);
-        });
-      }
-
-      function nextHotel() {
-        hotelIndex = (hotelIndex + 1) % hotels.length;
-        renderHotel();
-        updateDots();
-      }
-
-      function prevHotel() {
-        hotelIndex = (hotelIndex - 1 + hotels.length) % hotels.length;
-        renderHotel();
-        updateDots();
-      }
-
-      // Touch swipe
-      if (lodgingCard) {
-        lodgingCard.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        lodgingCard.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          const diff = touchStartX - touchEndX;
-          if (Math.abs(diff) > 50) {
-            if (diff > 0) nextHotel();
-            else prevHotel();
-          }
-        }, { passive: true });
-      }
-
-      // Swipe arrow buttons
-      swipeArrows.forEach(arrow => {
-        arrow.addEventListener('click', () => {
-          if (arrow.dataset.dir === 'next') nextHotel();
-          else prevHotel();
-        });
-      });
-
-      // Dot navigation
-      swipeDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          hotelIndex = index;
-          renderHotel();
-          updateDots();
-        });
-      });
-
-      // Update dots when using desktop arrows
-      document.querySelectorAll('.arrow-btn').forEach(btn => {
-        btn.addEventListener('click', updateDots);
-      });
-
-      // Initial dot update
-      updateDots();
 
       // Hamburger Menu - Clean Implementation
       const hamburgerBtn = document.getElementById('hamburgerBtn');

@@ -1007,43 +1007,4 @@ h3 {
     display: none;
   }
 
-  /* Mobile swipe controls */
-  .swipe-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 16px;
-    margin-top: 8px;
-  }
-
-  .swipe-arrow {
-    width: 44px;
-    height: 44px;
-    border: 2px solid var(--ocean-950);
-    background: var(--sun);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    cursor: pointer;
-    color: var(--ocean-950);
-  }
-
-  .swipe-dots {
-    display: flex;
-    gap: 10px;
-  }
-
-  .swipe-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--line);
-    cursor: pointer;
-  }
-
-  .swipe-dot.active {
-    background: var(--sun);
-  }
 }
