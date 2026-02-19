@@ -26,15 +26,22 @@
           <span class="sr-only">Jordan 50th</span>
         </a>
 
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
         <nav class="menu" id="mainMenu" aria-label="Section navigation">
           <a href="#overview">Overview</a>
           <a href="#cool-facts">Cool Facts</a>
           <a href="#agenda">Agenda</a>
           <a href="#location">Location</a>
           <a href="#lodging">Lodging</a>
+          <a class="menu-rsvp" href="mailto:rsvp@sproutstudios.com?subject=Jordan%2050th%20RSVP">RSVP</a>
         </nav>
 
-        <a class="header-rsvp" href="mailto:rsvp@sproutstudios.com?subject=Jordan%2050th%20RSVP">RSVP</a>
+        <a class="header-rsvp desktop-only" href="mailto:rsvp@sproutstudios.com?subject=Jordan%2050th%20RSVP">RSVP</a>
       </header>
 
       <section class="hero panel reveal" id="overview" aria-label="Overview">
@@ -426,6 +433,40 @@
 
       // Initial dot update
       updateDots();
+
+      // Hamburger Menu - Clean Implementation
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mainMenu = document.getElementById('mainMenu');
+      
+      if (hamburgerBtn && mainMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+          const isOpen = mainMenu.classList.contains('open');
+          
+          if (isOpen) {
+            // Close menu
+            mainMenu.classList.remove('open');
+            hamburgerBtn.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          } else {
+            // Open menu
+            mainMenu.classList.add('open');
+            hamburgerBtn.classList.add('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+
+        // Close menu when clicking a link
+        mainMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mainMenu.classList.remove('open');
+            hamburgerBtn.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+      }
     </script>
   </body>
 </html>

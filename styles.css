@@ -830,9 +830,103 @@ h3 {
   }
 }
 
-/* ========== MOBILE STYLES - FRESH START ========== */
-/* Clean mobile styles rebuilt from desktop */
+/* ========== MOBILE HAMBURGER MENU - CLEAN ========== */
+.hamburger {
+  display: none;
+}
+
+.menu-rsvp {
+  display: none;
+}
+
 @media (max-width: 767px) {
+  /* Show hamburger button */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    gap: 5px;
+    margin-left: auto;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ocean-950);
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile menu overlay */
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(234, 249, 255, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 80px 40px;
+    z-index: 1000;
+    display: none;
+  }
+
+  .menu.open {
+    display: flex;
+  }
+
+  .menu a {
+    font-size: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu a:last-of-type {
+    border-bottom: none;
+  }
+
+  .menu-rsvp {
+    display: block;
+    margin-top: 30px;
+    padding: 16px 40px;
+    background: var(--sun);
+    color: var(--ocean-950);
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--ocean-950);
+    font-size: 18px;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
   /* Base container */
   .site {
     padding: 12px;
@@ -841,28 +935,12 @@ h3 {
   /* Header stays simple */
   .site-header {
     padding: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .brand-logo {
     width: 36px;
     height: 36px;
-  }
-
-  /* Menu wraps naturally */
-  .menu {
-    gap: 6px;
-    padding: 8px 0;
-  }
-
-  .menu a {
-    font-size: 11px;
-    padding: 6px 10px;
-  }
-
-  .header-rsvp {
-    padding: 8px 14px;
-    font-size: 11px;
   }
 
   /* Hero stacks vertically */
