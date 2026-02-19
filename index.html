@@ -364,6 +364,7 @@
         hamburgerBtn.addEventListener('click', () => {
           hamburgerBtn.classList.toggle('active');
           mainMenu.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
           const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
           hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
         });
@@ -373,6 +374,7 @@
           link.addEventListener('click', () => {
             hamburgerBtn.classList.remove('active');
             mainMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
             hamburgerBtn.setAttribute('aria-expanded', 'false');
           });
         });
