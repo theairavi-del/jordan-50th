@@ -830,6 +830,127 @@ h3 {
   }
 }
 
+/* MOBILE ONLY - Clean Hamburger Menu */
+.hamburger {
+  display: none;
+}
+
+.mobile-rsvp {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    gap: 5px;
+    margin-left: auto;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ocean-950);
+    transition: 0.3s;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .menu {
+    position: fixed;
+    top: 70px;
+    left: 15px;
+    right: 15px;
+    background: rgba(234, 249, 255, 0.98);
+    border: 2px solid var(--line-strong);
+    border-radius: 8px;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 100;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu a {
+    font-size: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .menu a:last-of-type {
+    border-bottom: none;
+  }
+
+  .header-rsvp {
+    display: none;
+  }
+
+  .mobile-rsvp {
+    display: block;
+    padding: 14px;
+    background: var(--sun);
+    color: var(--ocean-950);
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--ocean-950);
+    margin-top: 10px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lead {
+    order: 0;
+  }
+
+  .hero-visual {
+    order: 1;
+    margin: 20px 0;
+  }
+
+  .hero-visual img {
+    height: 250px;
+  }
+
+  .hero-stats {
+    order: 2;
+  }
+
+  .hero-date, .board-tag {
+    font-size: 11px;
+    padding: 6px 10px;
+    max-width: 45%;
+  }
+}
+
 /* ========== MOBILE STYLES ONLY ========== */
 /* These styles only apply below 768px and don't affect desktop */
 
